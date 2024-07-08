@@ -1,0 +1,9 @@
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
+# Proteger directorios sensibles reescribiendo la solicitud a una página 404
+RewriteRule ^(bootstrap|config|vendor|storage|resources|routes|tests|\.env|\.git|composer\.lock|composer\.json|package\.json|phpunit\.xml|webpack\.mix\.js) - [R=404,L,NC]
+
+# Prevenir el listado de directorios
+Options -Indexes
